@@ -1,5 +1,4 @@
 
-
 window.addEventListener("load", function () {
     let list
 
@@ -9,16 +8,25 @@ window.addEventListener("load", function () {
     let listedPlanetsResponse =  myFetch();
     listedPlanetsResponse.then(function (result) {
         listedPlanets = result;
-        console.log(listedPlanets);
     }).then(function () {
-        console.log(listedPlanets);
-        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
+        
+        pickedPlanet = pickPlanet(listedPlanets)
+        
+        let planName = pickedPlanet.name;
+        let planDiameter = pickedPlanet.diameter;
+        let planStar = pickedPlanet.star;
+        let planDistance = pickedPlanet.distance;
+        let planMoon = pickedPlanet.planMoon
+        let planImg = pickedPlanet.image
+
+        addDestinationInfo(document, planName, planDiameter, planStar, planDistance, planMoon, planImg)
     })
 
     let form = document.querySelector("form");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault()
+        
         let namePilot = document.querySelector("input[name=pilotName]")
         let nameCopilot = document.querySelector("input[name=copilotName]")
         let levelFuel = document.querySelector("input[name=fuelLevel]")
