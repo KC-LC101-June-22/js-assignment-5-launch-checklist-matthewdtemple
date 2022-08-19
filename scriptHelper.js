@@ -22,9 +22,9 @@ function validateInput(testInput) {
     if (!testInput) {
         return "Empty"
     } else if (isNaN(testInput)) {
-        return "Not a number"
+        return "Not a Number"
     } else {
-        return "Is a number"
+        return "Is a Number"
     }
 
 }
@@ -32,9 +32,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
         alert("All fields required!")
-    } else if (validateInput(pilot) === "Is a number" || validateInput(copilot) === "Is a number") {
+    } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
         alert("Pilot and copilot cannot contain numbers.")
-    } else if (validateInput(fuelLevel) === "Not a number" || validateInput(cargoLevel) === "Not a number") {
+    } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
         alert("Fuel and Cargo must be a number")
     }
 
@@ -51,24 +51,24 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     if (fuelLevel < 10000 && cargoLevel > 10000) {
         docVisiblity.style.visibility = "visible"
-        launchStatus.innerHTML = "Shuttle not ready for launch"
-        launchStatus.style.color = "red"
+        launchStatus.innerHTML = "Shuttle Not Ready for Launch"
+        launchStatus.style.color = "rgb(199, 37, 78)"
         fuelStatus.innerHTML = "Not enough fuel for mission"
-        cargoStatus.innerHTML = "Too much cargo, weight limit exceeded"
+        cargoStatus.innerHTML = "Cargo mass too heavy for launch"
     }else if (cargoLevel > 10000){
         docVisiblity.style.visibility = "visible"
-        launchStatus.innerHTML = "Shuttle not ready for launch"
-        launchStatus.style.color = "red"
-        cargoStatus.innerHTML = "Too much cargo, weight limit exceeded"
+        launchStatus.innerHTML = "Shuttle Not Ready for Launch"
+        launchStatus.style.color = "rgb(199, 37, 78)"
+        cargoStatus.innerHTML = "Cargo mass too heavy for launch"
         fuelStatus.innerHTML = "Fuel level high enough for launch"
     } else if (fuelLevel < 10000) {
         docVisiblity.style.visibility = "visible"
-        launchStatus.innerHTML = "Shuttle not ready for launch"
-        launchStatus.style.color = "red"
+        launchStatus.innerHTML = "Shuttle Not Ready for Launch"
+        launchStatus.style.color = "rgb(199, 37, 78)"
         fuelStatus.innerHTML = "Not enough fuel for mission"
         cargoStatus.innerHTML = "Cargo mass low enough for launch"
     } else {
-        launchStatus.innerHTML = "Shuttle ready for launch"
+        launchStatus.innerHTML = "Shuttle is Ready for Launch"
         launchStatus.style.color = "green"
     }
 
